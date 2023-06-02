@@ -3,7 +3,9 @@
 import dash
 from dash import dcc
 from dash import html
+from dash import Dash
 import plotly.graph_objects as go
+import plotly.express as px
 import pandas as pd
 import numpy as np
 import pathlib
@@ -45,6 +47,27 @@ def file_download_link(filename):
             )
         ],
         className="download-button"
+    )
+
+def get_piechart():
+    # Load data from CSV file
+    data = pd.read_csv('data/dummy_pie.csv')
+
+    # Calculate the count of each category in the data
+    category_counts = data['Type'].value_counts()
+
+    # Create a pie chart using Plotly Express
+    fig = px.pie(data_frame=data, names=category_counts.index, values=category_counts.values, title='Category Distribution')
+
+    # Create the Dash application
+    app = Dash(__name__)
+
+    # Define the layout of the application
+    return html.Div(
+        children=[
+            html.H1('Plotly Pie Chart'),
+            dcc.Graph(figure=fig)
+        ]
     )
 
 # App server setup
