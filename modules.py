@@ -112,7 +112,7 @@ def get_piechart():
     category_counts = data['Type'].value_counts()
 
     # Create a pie chart using Plotly Express
-    fig = px.pie(data_frame=data, names=category_counts.index, values=category_counts.values, title='Category Distribution')
+    fig = px.pie(data_frame=data, names=data['Type'], values=data['Percentage'], title='Category Distribution')
 
     fig.layout.paper_bgcolor='#CCC'
     # Return chart
