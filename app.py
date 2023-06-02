@@ -14,6 +14,8 @@ from dash.dependencies import Input, Output
 from urllib.parse import quote as urlquote
 from flask import Flask, send_from_directory, send_file
 
+from modules import get_methodology, get_facts_module, get_pie_module
+
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
 # Used dataset version names
@@ -143,60 +145,11 @@ app.layout = html.Div(
             [
                 html.Div(
                     [
+                        get_methodology(),
                         html.Div(
                             [
-                                html.Div(
-                                    children=[
-                                        html.Div(
-                                            [
-                                                html.H3(
-                                                    "Methodology"
-                                                ),
-                                                html.P(
-                                                    "The final index is calculated "
-                                                    "using the following formula:"
-                                                ),
-                                                html.I("EGDI = ⅓ × (OSI+TII+HCI)"
-                                                       ),
-                                                html.H6(
-                                                    "The components of the index are defined like so: "
-                                                ),
-                                                html.Ul(
-                                                    [
-                                                        html.Li(
-                                                            "1"
-                                                        ),
-                                                        html.Li(
-
-                                                            "2",
-
-
-                                                        ),
-                                                        html.Li(
-
-                                                            "3",
-
-
-                                                        )
-                                                    ]
-                                                ),
-                                                html.P(
-                                                    [
-                                                        "More information about the methodology can be found on ",
-                                                        html.A(
-                                                            "the project Open Source repository",
-                                                            href="https://github.com/Plavit/GreenHack-AI-carbon-impact",
-                                                            target="_blank",
-                                                        ),
-                                                        "."
-                                                    ]
-                                                )
-                                            ]
-                                        )
-                                    ],
-                                    id="un_description",
-                                    className="pretty_container description twelve columns flex-display"
-                                ),
+                                get_facts_module(),
+                                get_pie_module()
                             ],
                             className="content_holder row twelve columns flex-display"
                         ),
