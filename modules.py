@@ -36,6 +36,13 @@ def get_main_chart():
     # Load data from CSV file
     df = pd.read_csv('data/energy_emissions_california.csv')
 
+    # Add data - chatgpt
+    # Load
+    df_chatgpt=pd.read_csv('data/chatgpt_pie.csv')
+
+
+
+
     fig = px.line(df, x="date", y="value est", width=800) #color='country'
     fig.update_layout(
         margin=dict(l=20, r=20, t=20, b=20)
