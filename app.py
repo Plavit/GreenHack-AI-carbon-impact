@@ -179,7 +179,44 @@ app.layout = html.Div(
                                             ]
                                         )
                                     ],
-                                    id="un_description",
+                                    id="methods_description",
+                                    className="pretty_container description twelve columns flex-display"
+                                ),
+                            ],
+                            className="content_holder row twelve columns flex-display"
+                        ),
+                        html.Div(
+                            [
+                                html.Div(
+                                    children=[
+                                        html.Div(
+                                            [
+                                                html.H3(
+                                                    "Fun Fax"
+                                                ),
+                                                html.P(
+                                                    "TBD"
+                                                ),
+                                            ]
+                                        )
+                                    ],
+                                    id="methods_description",
+                                    className="pretty_container description twelve columns flex-display"
+                                ),
+html.Div(
+                                    children=[
+                                        html.Div(
+                                            [
+                                                html.H3(
+                                                    "Graph"
+                                                ),
+                                                html.P(
+                                                    "TBD "
+                                                ),
+                                            ]
+                                        )
+                                    ],
+                                    id="methods_description",
                                     className="pretty_container description twelve columns flex-display"
                                 ),
                             ],
