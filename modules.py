@@ -1,6 +1,7 @@
 from dash import dcc
 from dash import html
 import plotly.express as px
+import plotly.graph_objs as go
 import pandas as pd
 
 
@@ -20,6 +21,7 @@ def get_main_comparison():
                                             html.Div(
                                                 [
                                                     get_main_chart()
+                                                    # get_chart_2()
                                                 ],
                                                 id="main_graph"
                                             )
@@ -32,20 +34,61 @@ def get_main_comparison():
                         ],
                         className="content_holder row twelve columns"
                     )
+
+def get_chart_2():
+    data = pd.read_csv('data/energy_emissions_california.csv')
+
+    # Create Dash app
+    # app = Dash(__name__)
+
+    #darkmode adjustment
+    # fig.layout.paper_bgcolor='#CCC'
+
+    # Define layout
+    return dcc.Graph(
+            id='linear-chart',
+            figure={
+                'data': [
+                    go.Scatter(
+                        x=data['date'],
+                        y=data['value est'],
+                        mode='lines+markers'
+                    )
+                ],
+                'layout': go.Layout(
+                    xaxis=dict(
+                        title='Date',
+                        tickformat='%b %d, %Y',  # Format: month (abbreviated)\nyear
+                        # tickmode='vertical',
+                        dtick='M1'  # Ticks every month
+                    ),
+                    yaxis=dict(
+                        title='Value'
+                    ),
+                    paper_bgcolor='#CCC'
+                )
+            }
+        )
+
 def get_main_chart():
     # Load data from CSV file
     df = pd.read_csv('data/energy_emissions_california.csv')
 
     # Add data - chatgpt
     # Load
-    df_chatgpt=pd.read_csv('data/chatgpt_pie.csv')
+    df_chatgpt = pd.read_csv('data/chatgpt_pie.csv')
+    query_cost = {"chatgpt": 0.00297,
+                  "stablediffusion": 0.00014,
+                  "stablediffusion": 0.00005,
+                  }
 
-
-
+    df = df.sort_values(by="date", ascending=True)
 
     fig = px.line(df, x="date", y="value est", width=800) #color='country'
     fig.update_layout(
-        margin=dict(l=20, r=20, t=20, b=20)
+        margin=dict(l=20, r=20, t=20, b=20),
+        # xaxis_rangeslider_visible=True,
+        xaxis=dict(tickformat='%b\n%Y')
     )
 
     #darkmode adjustment
@@ -145,7 +188,7 @@ def get_pie_module():
                             html.Div(
                                 [
                                     html.H3(
-                                        "Impact on CO2 of training vs prompt"
+                                        "Training vs prompt: Impact on CO2 emissions"
                                     ),
                                     get_piechart()
                                 ]
