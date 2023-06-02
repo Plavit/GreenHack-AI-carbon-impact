@@ -137,9 +137,13 @@ def get_facts_module():
                                     html.H3(
                                         "Fun Fax"
                                     ),
-                                    html.P(
-                                        "TBD"
-                                    ),
+                                    html.P("Training ChatGPT is a minor factor in the total energy consumption of a prompt, as its effect is diluted by the frequent and long-term use of the model."),
+                                    html.P("Optimizing prompts can significantly reduce the carbon footprint of your queries. Here are some tips on how to optimize them:"),
+                                    html.Ul(children=[
+                                        html.Li([html.Strong("Use follow-up prompts:"), " Using follow-up prompts and natural language, you can have ChatGPT make changes to the tables it has drawn and even produce them in a standard format that can be understood by another program."], style={'margin': '10px'}),
+                                        html.Li([html.Strong("Assign a role:"), " Assigning a role to ChatGPT can help you get the most out of it. Give it a level of expertise with which to view your prompt or question."], style={'margin': '10px'}),
+                                        html.Li([html.Strong("Use prompting techniques:"), " There are several prompting techniques that can help you get more appropriate responses to your prompts. For example, you can assign ChatGPT a role, use multiple prompts, or use specific keywords in your prompts."], style={'margin': '10px'})
+                                    ], style={'list-style-type': 'disc', 'margin': '20px'}),
                                 ]
                             )
                         ],
