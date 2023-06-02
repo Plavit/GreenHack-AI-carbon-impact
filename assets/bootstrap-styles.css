@@ -303,6 +303,7 @@ input[type="button"] {
   border: 1px solid #bbb;
   cursor: pointer;
   box-sizing: border-box;
+  color: #fff;
 }
 .button:hover,
 button:hover,
@@ -317,6 +318,8 @@ input[type="button"]:focus {
   color: #333;
   border-color: #888;
   outline: 0;
+  background-color: #fff;
+
 }
 .button.button-primary,
 button.button-primary,

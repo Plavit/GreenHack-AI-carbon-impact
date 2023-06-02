@@ -1,5 +1,7 @@
 from dash import dcc
 from dash import html
+import plotly.express as px
+import pandas as pd
 
 def get_methodology():
     return html.Div(
@@ -94,12 +96,24 @@ def get_pie_module():
                                     html.H3(
                                         "Graph"
                                     ),
-                                    html.P(
-                                        "TBD "
-                                    ),
+                                    get_piechart()
                                 ]
                             )
                         ],
                         id="pie_graph",
-                        className="pretty_container description twelve columns flex-display"
+                        className="pretty_container ten columns",
                     )
+
+def get_piechart():
+    # Load data from CSV file
+    data = pd.read_csv('data/dummy_pie.csv')
+
+    # Calculate the count of each category in the data
+    category_counts = data['Type'].value_counts()
+
+    # Create a pie chart using Plotly Express
+    fig = px.pie(data_frame=data, names=category_counts.index, values=category_counts.values, title='Category Distribution')
+
+    fig.layout.paper_bgcolor='#CCC'
+    # Return chart
+    return dcc.Graph(figure=fig)
