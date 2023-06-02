@@ -43,14 +43,20 @@ def get_main_chart():
     # Add data - chatgpt
     # Load
     df_chatgpt = pd.read_csv('data/chatgpt_pie.csv')
+
+    #Cost in kWh
     query_cost = {"chatgpt": 0.00297,
-                  "stablediffusion": 0.00014,
+                  "dalle2": 0.00014,
                   "stablediffusion": 0.00005,
                   }
 
+    df['chatgpt_carbon_cost'] = df['value est'] * query_cost["chatgpt"]#/df["chatgpt est"]
+    df['dalle2_carbon_cost'] = df['value est'] * query_cost["dalle2"]
+    df['stabledif_carbon_cost'] = df['value est'] * query_cost["stablediffusion"]
+
     df = df.sort_values(by="date", ascending=True)
 
-    fig = px.line(df, x="date", y="value est", width=800) #color='country'
+    fig = px.line(df, x="date", y=["chatgpt_carbon_cost","dalle2_carbon_cost","stabledif_carbon_cost"], width=800) #color='country'
     fig.update_layout(
         margin=dict(l=20, r=20, t=20, b=20),
         xaxis=dict(tickformat='%b\n%Y')
