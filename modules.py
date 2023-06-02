@@ -138,7 +138,7 @@ def get_pie_module():
                             html.Div(
                                 [
                                     html.H3(
-                                        "Graph"
+                                        "Impact on CO2 of training vs prompt"
                                     ),
                                     get_piechart()
                                 ]
