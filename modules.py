@@ -26,15 +26,20 @@ def get_main_comparison():
                                         ]
                                     )
                                 ],
-                                id="methods_description",
-                                className="pretty_container description twelve columns flex-display"
+                                id="main_chart_container",
+                                className="pretty_container twelve columns"
                             ),
                         ],
-                        className="content_holder row twelve columns flex-display"
+                        className="content_holder row twelve columns"
                     )
 def get_main_chart():
-    df = px.data.gapminder().query("continent=='Oceania'")
-    fig = px.line(df, x="year", y="lifeExp", color='country')
+    # Load data from CSV file
+    df = pd.read_csv('data/energy_emissions_california.csv')
+
+    fig = px.line(df, x="date", y="value est", width=800) #color='country'
+    fig.update_layout(
+        margin=dict(l=20, r=20, t=20, b=20)
+    )
     # Return chart
     return dcc.Graph(figure=fig)
 
