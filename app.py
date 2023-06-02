@@ -133,8 +133,8 @@ app.layout = html.Div(
                                                     "The final index is calculated "
                                                     "using the following formula:"
                                                 ),
-                                                html.I("EGDI = ⅓ × (OSI+TII+HCI)"
-                                                       ),
+                                                dcc.Markdown('$${MII=({TEC\over{APC}}+PEC})\\times \sum_{i=1}^{num_{'
+                                                             'SL}}\\times (SLECI\\times SSL)$$', mathjax=True),
                                                 html.H6(
                                                     "The components of the index are defined like so: "
                                                 ),
