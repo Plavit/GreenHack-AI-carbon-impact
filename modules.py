@@ -139,9 +139,9 @@ def get_pie_module():
                         className="pretty_container ten columns",
                     )
 
-def get_piechart():
+def get_piechart(filename='data/chatgpt_pie.csv'):
     # Load data from CSV file
-    data = pd.read_csv('data/chatgpt_pie.csv')
+    data = pd.read_csv(filename)
 
     # Calculate the count of each category in the data
     category_counts = data['Type'].value_counts()
