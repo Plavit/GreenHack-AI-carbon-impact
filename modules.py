@@ -40,6 +40,10 @@ def get_main_chart():
     fig.update_layout(
         margin=dict(l=20, r=20, t=20, b=20)
     )
+
+    #darkmode adjustment
+    fig.layout.paper_bgcolor='#CCC'
+
     # Return chart
     return dcc.Graph(figure=fig)
 
@@ -154,6 +158,7 @@ def get_piechart(filename='data/chatgpt_pie.csv'):
     # Create a pie chart using Plotly Express
     fig = px.pie(data_frame=data, names=data['Type'], values=data['Percentage'], title='Category Distribution')
 
+    #darkmode adjustment
     fig.layout.paper_bgcolor='#CCC'
     # Return chart
     return dcc.Graph(figure=fig)
