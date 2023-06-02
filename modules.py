@@ -3,6 +3,41 @@ from dash import html
 import plotly.express as px
 import pandas as pd
 
+
+def get_main_comparison():
+    return html.Div(
+                        [
+                            html.Div(
+                                children=[
+                                    html.Div(
+                                        [
+                                            html.H3(
+                                                "AI model comparison"
+                                            ),
+                                            html.P(
+                                                "Here is the comparison of benchmarked models:"
+                                            ),
+                                            html.Div(
+                                                [
+                                                    get_main_chart()
+                                                ],
+                                                id="main_graph"
+                                            )
+                                        ]
+                                    )
+                                ],
+                                id="methods_description",
+                                className="pretty_container description twelve columns flex-display"
+                            ),
+                        ],
+                        className="content_holder row twelve columns flex-display"
+                    )
+def get_main_chart():
+    df = px.data.gapminder().query("continent=='Oceania'")
+    fig = px.line(df, x="year", y="lifeExp", color='country')
+    # Return chart
+    return dcc.Graph(figure=fig)
+
 def get_methodology():
     return html.Div(
                         [

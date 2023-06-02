@@ -14,7 +14,7 @@ from dash.dependencies import Input, Output
 from urllib.parse import quote as urlquote
 from flask import Flask, send_from_directory, send_file
 
-from modules import get_methodology, get_facts_module, get_pie_module
+from modules import get_methodology, get_facts_module, get_pie_module, get_main_comparison
 
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
@@ -127,6 +127,7 @@ app.layout = html.Div(
                 html.Div(
                     [
                         get_methodology(),
+                        get_main_comparison(),
                         html.Div(
                             [
                                 get_facts_module(),
