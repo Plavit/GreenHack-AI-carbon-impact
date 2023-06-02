@@ -114,5 +114,6 @@ def get_piechart():
     # Create a pie chart using Plotly Express
     fig = px.pie(data_frame=data, names=category_counts.index, values=category_counts.values, title='Category Distribution')
 
+    fig.layout.paper_bgcolor='#CCC'
     # Return chart
     return dcc.Graph(figure=fig)
