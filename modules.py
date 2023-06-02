@@ -35,40 +35,6 @@ def get_main_comparison():
                         className="content_holder row twelve columns"
                     )
 
-def get_chart_2():
-    data = pd.read_csv('data/energy_emissions_california.csv')
-
-    # Create Dash app
-    # app = Dash(__name__)
-
-    #darkmode adjustment
-    # fig.layout.paper_bgcolor='#CCC'
-
-    # Define layout
-    return dcc.Graph(
-            id='linear-chart',
-            figure={
-                'data': [
-                    go.Scatter(
-                        x=data['date'],
-                        y=data['value est'],
-                        mode='lines+markers'
-                    )
-                ],
-                'layout': go.Layout(
-                    xaxis=dict(
-                        title='Date',
-                        tickformat='%b %d, %Y',  # Format: month (abbreviated)\nyear
-                        # tickmode='vertical',
-                        dtick='M1'  # Ticks every month
-                    ),
-                    yaxis=dict(
-                        title='Value'
-                    ),
-                    paper_bgcolor='#CCC'
-                )
-            }
-        )
 
 def get_main_chart():
     # Load data from CSV file
@@ -87,7 +53,6 @@ def get_main_chart():
     fig = px.line(df, x="date", y="value est", width=800) #color='country'
     fig.update_layout(
         margin=dict(l=20, r=20, t=20, b=20),
-        # xaxis_rangeslider_visible=True,
         xaxis=dict(tickformat='%b\n%Y')
     )
 
