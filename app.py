@@ -47,11 +47,11 @@ def file_download_link(filename):
         className="download-button"
     )
 
-
+# App server setup
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets, server=server)
-
 server = app.server
 
+# App layout rendering
 app.layout = html.Div(
     children=[
         html.Div(
@@ -71,22 +71,27 @@ app.layout = html.Div(
                 html.Div(
                     [
                         html.H3(
-                            "eGovernment index dashboard",
+                            "Milee GreenAI benchmark",
                             style={"margin-bottom": "0px"},
                         ),
                         html.H5(
-                            "A simple overview of UN and EU eGovernment benchmark indices",
+                            "The green AI climate impact metric",
                             style={"margin-top": "0px"}
                         ),
                         html.I(
                             [
-                                "Created as part of a paper submission for the Cambridge Journal of Science and Policy "
-                                "by Marek Szeles and Anshumaan Krishnan Ayyangar, expanding on ",
+                                "Created by ",
                                 html.A(
-                                    "previous work done by the former",
-                                    href="https://github.com/Plavit/eGovernment-index-dashboard",
+                                    "Marek Miltner",
+                                    href="https://github.com/Plavit",
                                     target="_blank"
-                                )
+                                ),
+                                ", and ",
+                                html.A(
+                                    "Alena Moravová",
+                                    href="https://github.com/moraval",
+                                    target="_blank"
+                                ),
                             ],
                             style={"margin-top": "0px"}
                         ),
@@ -122,86 +127,42 @@ app.layout = html.Div(
                                         html.Div(
                                             [
                                                 html.H3(
-                                                    "UN eGovernment index"
+                                                    "Methodology"
                                                 ),
                                                 html.P(
-                                                    "The e-Government Development Index (EGDI) is being published by "
-                                                    "the United Nations since 2001. It is a composite indicator "
-                                                    "involving three components – Online Service Index(OSI), "
-                                                    "Telecommunication Infrastructure Index (TII) "
-                                                    "and Human Capital Index (HCI). The final index is calculated "
+                                                    "The final index is calculated "
                                                     "using the following formula:"
                                                 ),
                                                 html.I("EGDI = ⅓ × (OSI+TII+HCI)"
                                                        ),
                                                 html.H6(
-                                                    "The three components of the index are defined like so: "
+                                                    "The components of the index are defined like so: "
                                                 ),
                                                 html.Ul(
                                                     [
                                                         html.Li(
-                                                            "OSI is the normalised score between 0 and 1, which"
-                                                            " is equal to the difference of the "
-                                                            "actual total score and the lowest total score divided by "
-                                                            "the range of total score values for all countries. "
+                                                            "1"
                                                         ),
                                                         html.Li(
-                                                            [
-                                                                "Each country’s TII is the arithmetic average of",
-                                                                html.Ul(
-                                                                    [
-                                                                        html.Li(
-                                                                            "Estimated internet users "
-                                                                            "per 100 inhabitants;",
-                                                                        ),
-                                                                        html.Li(
-                                                                            "Number of mobile subscribers "
-                                                                            "per 100 inhabitants;"
-                                                                        ),
-                                                                        html.Li(
-                                                                            "Active mobile broadband subscriptions"
-                                                                            "per 100 inhabitants;"
-                                                                        ),
-                                                                        html.Li(
-                                                                            "Number of fixed broadband subscriptions "
-                                                                            "per 100 inhabitants"
-                                                                        )
-                                                                    ]
-                                                                )
-                                                            ]
+
+                                                            "2",
+
+
                                                         ),
                                                         html.Li(
-                                                            [
-                                                                "Each country’s HCI is calculated using:",
-                                                                html.Ul(
-                                                                    [
-                                                                        html.Li(
-                                                                            "The adult literacy rate;",
-                                                                        ),
-                                                                        html.Li(
-                                                                            "The combined primary, secondary and "
-                                                                            "tertiary gross enrolment ratio;"
-                                                                        ),
-                                                                        html.Li(
-                                                                            "Expected years of schooling;"
-                                                                        ),
-                                                                        html.Li(
-                                                                            "Average years of schooling."
-                                                                        )
-                                                                    ]
-                                                                )
-                                                            ]
+
+                                                            "3",
+
+
                                                         )
                                                     ]
                                                 ),
                                                 html.P(
                                                     [
-                                                        "More information about the methodology can be found in ",
+                                                        "More information about the methodology can be found on ",
                                                         html.A(
-                                                            "documents published directly by the UN",
-                                                            href="https://www.un.org/development/desa/"
-                                                                 "publications/publication/"
-                                                                 "2020-united-nations-e-government-survey",
+                                                            "the project Open Source repository",
+                                                            href="https://github.com/Plavit/GreenHack-AI-carbon-impact",
                                                             target="_blank",
                                                         ),
                                                         "."
@@ -231,7 +192,6 @@ app.layout = html.Div(
 )
 
 app.title = 'GreenHack'
-
 
 
 if __name__ == '__main__':
