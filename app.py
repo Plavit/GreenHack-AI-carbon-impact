@@ -72,23 +72,24 @@ app.layout = html.Div(
                                 get_carbon_estimates_module(),
                                 get_pie_module()
                             ],
-                            className="content_holder row twelve columns flex-display",
-                            style={'display': 'flex', "flex-direction": "row"}
+                            className="content_holder row 2 columns flex-display top",
+                            style={'columnCount': 2, 'display': 'flex', "flex-direction": "row"}
                         ),
                         html.Div(
                             [
                                 get_facts_module(),
                                 get_methodology(),
                             ],
-                            className="content_holder row twelve columns flex-display",
-                            style={'display': 'flex', "flex-direction": "row"}
+                            className="content_holder row 2 columns flex-display bottom",
+                            style={'columnCount': 2, 'display': 'flex', "flex-direction": "column"}
                         )
                     ],
                     className="pretty_container_bg twelve columns",
-                    style={'display': 'flex', "flex-direction": "column", 'justifyContent': 'space-between'}
+                    style={'columnCount': 2, 'display': 'flex', "flex-direction": "column", 'justifyContent': 'space-between'}
                 ),
             ],
             className="row flex-display",
+            style={'columnCount': 1, 'rowCount': 3, "display": "flex", "flex-direction": "column", 'justifyContent': 'space-between'},
         ),
     ],
     id="mainContainer",
