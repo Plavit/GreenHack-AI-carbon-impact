@@ -331,7 +331,7 @@ def get_piechart(filename='data/chatgpt_pie.csv'):
     # Return the chart as a dcc.Graph component
     return dcc.Graph(
         figure=fig,
-        style={'height': '400px'}  # Adjust the height of the chart as desired
+        style={'height': '300px'}  # Adjust the height of the chart as desired
     )
 
 
@@ -395,5 +395,6 @@ def get_top_module():
             ],
             id="header",
             className="row flex-display",
-            style={"margin-bottom": "25px"},
+            style={'columnCount': 3, "margin-bottom": "25px"},
+            # style={'columnCount': 1, 'rowCount': 3, "display": "flex", "flex-direction": "column", 'justifyContent': 'space-between'},
         )

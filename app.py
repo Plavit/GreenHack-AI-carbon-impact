@@ -19,7 +19,9 @@ from modules import get_methodology, get_facts_module, get_pie_module, get_main_
 
 # external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 # external_stylesheets = ['https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/slate/bootstrap.min.css']
-external_stylesheets = ['https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/superhero/bootstrap.min.css']
+# external_stylesheets = ['https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/superhero/bootstrap.min.css']
+external_stylesheets = ['https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/flatly/bootstrap.min.css']
+
 
 # Used dataset version names
 DATA_MOCK = 'chatGPT_users.csv'
@@ -92,11 +94,14 @@ app.layout = html.Div(
                 ),
             ],
             className="row flex-display",
-            style={'columnCount': 1, 'rowCount': 3, "display": "flex", "flex-direction": "column", 'justifyContent': 'space-between'},
+            
+            style={"display": "flex", "flex-direction": "column"},
+            # style={'columnCount': 1, 'rowCount': 3, "display": "flex", "flex-direction": "column", 'justifyContent': 'space-between'},
         ),
     ],
     id="mainContainer",
-    style={"display": "flex", "flex-direction": "column", 'justifyContent': 'space-between'},
+    style={"display": "flex", "flex-direction": "column"},
+    # style={"display": "flex", "flex-direction": "column", 'justifyContent': 'space-between'},
 )
 
 app.title = 'GreenHack'
