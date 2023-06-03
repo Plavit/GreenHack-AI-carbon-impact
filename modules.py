@@ -163,13 +163,18 @@ def get_carbon_estimates_module():
                         html.Div(
                             [
                                 html.H3(
-                                    "One query emissions"
+                                    "Carbon emissions per Query"
                                 ),
-                                get_piechart()
+                                html.Ul(children=[
+                                    html.Li([html.Strong("ChatGPT - regular prompt size:\t"), "1e-3"], style={'margin': '20px'}),
+                                    html.Li([html.Strong("ChatGPT - small prompt size:\t"), "5e-4"], style={'margin': '20px'}),
+                                    html.Li([html.Strong("Dalle-2:\t"), "5e-5"], style={'margin': '20px'}),
+                                    html.Li([html.Strong("Stable Diffusion:\t"), "5e-5"], style={'margin': '20px'}),
+                                ], style={'list-style-type': 'disc', 'margin': '20px'}),
                             ]
                         )
                     ],
-                    id="pie_graph",
+                    id="carbons",
                     className="pretty_container ten columns",
                 )
 
@@ -218,3 +223,67 @@ def get_piechart(filename='data/chatgpt_pie.csv'):
         figure=fig,
         style={'height': '400px'}  # Adjust the height of the chart as desired
     )
+
+
+def get_top_module():
+    return html.Div(
+            [
+                html.Div(
+                    [
+                        html.Img(
+                            src='assets/Logo-text-en.png',
+                            draggable='False',
+                            id="logo",
+                            height='auto',
+                            width=220,
+                        )
+                    ],
+                    className="three columns",
+                ),
+                html.Div(
+                    [
+                        html.H3(
+                            "Milee GreenAI benchmark",
+                            style={"margin-bottom": "0px"},
+                        ),
+                        html.H5(
+                            "The green AI climate impact metric",
+                            style={"margin-top": "0px"}
+                        ),
+                        html.I(
+                            [
+                                "Created by ",
+                                html.A(
+                                    "Marek Miltner",
+                                    href="https://github.com/Plavit",
+                                    target="_blank"
+                                ),
+                                ", and ",
+                                html.A(
+                                    "Alena Moravová",
+                                    href="https://github.com/moraval",
+                                    target="_blank"
+                                ),
+                            ],
+                            style={"margin-top": "0px"}
+                        ),
+
+                    ],
+                    className="eight columns",
+                    id="title",
+                ),
+                html.Div(
+                    [
+                        html.A(
+                            html.Button("Contact the authors", id="contact-button"),
+                            href="mailto:marek.szeles@eforce.cvut.cz",
+                        )
+                    ],
+                    className="three columns",
+                    id="button",
+                ),
+            ],
+            id="header",
+            className="row flex-display",
+            style={"margin-bottom": "25px"},
+        )
