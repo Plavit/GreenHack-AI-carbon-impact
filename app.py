@@ -15,7 +15,7 @@ from urllib.parse import quote as urlquote
 from flask import Flask, send_from_directory, send_file
 
 from modules import get_methodology, get_facts_module, get_pie_module, get_main_comparison, \
-    get_carbot_estimates_2_module, get_carbon_estimates_module, get_top_module
+    get_carbot_estimates_2_module, get_top_module, get_carbon_estimates_total_module
 
 # external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 # external_stylesheets = ['https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/slate/bootstrap.min.css']
@@ -72,10 +72,11 @@ app.layout = html.Div(
                         html.Div(
                             [
                                 get_carbot_estimates_2_module(),
+                                get_carbon_estimates_total_module(),
                                 get_pie_module()
                             ],
                             className="content_holder row 2 columns flex-display top",
-                            style={'columnCount': 2, 'display': 'flex', "flex-direction": "row"}
+                            style={'columnCount': 3, 'display': 'flex', "flex-direction": "row"}
                         ),
                         html.Div(
                             [
@@ -95,12 +96,8 @@ app.layout = html.Div(
         ),
     ],
     id="mainContainer",
-    style={'columnCount': 1, "display": "flex", "flex-direction": "column", 'justifyContent': 'space-between'},
+    style={"display": "flex", "flex-direction": "column", 'justifyContent': 'space-between'},
 )
-
-# app.no-box-shadow {
-#     "box-shadow": None #!important;
-# }
 
 app.title = 'GreenHack'
 

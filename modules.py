@@ -184,9 +184,15 @@ def get_carbot_estimates_2_module():
                     children=[
                         html.Div(
                             children=[
-                                html.H3("Carbon emissions per Query"),
+                                html.H3("Carbon emissions per Query", style={'whiteSpace': 'nowrap'}),
                                 html.Table(
                                     children=[
+                                        html.Tr(
+                                            children=[
+                                                html.Td("Model type", style={'padding': '20px', 'whiteSpace': 'nowrap', 'font-size': 22}),
+                                                html.Td("C02 [Kg]", style={'padding': '20px', 'whiteSpace': 'nowrap', 'font-size': 22})
+                                            ]
+                                        ),
                                         html.Tr(
                                             children=[
                                                 html.Td(html.Strong("ChatGPT - regular prompt size:"), style={'padding': '20px', 'whiteSpace': 'nowrap'}),
@@ -217,7 +223,65 @@ def get_carbot_estimates_2_module():
                             ],
                             id="carbons",
                             className="pretty_container ten columns",
-                            style={'min-width': '400px', 'justify-content': 'center', "align-items": "center"}
+                            style={'min-width': '450px', 'justify-content': 'center', "align-items": "center"}
+                        )
+                    ],
+                    className="main-container"
+                )
+
+
+def get_carbon_estimates_total_module():
+    return html.Div(
+                    children=[
+                        html.Div(
+                            children=[
+                                html.H3("Carbon emissions Total"),
+                                html.Table(
+                                    children=[
+                                        html.Tr(
+                                            children=[
+                                                html.Td("Model type", style={'padding': '20px', 'whiteSpace': 'nowrap', 'font-size': 22}),
+                                                html.Td("Total C02 [Tons]", style={'padding': '20px', 'whiteSpace': 'nowrap', 'font-size': 22}),
+                                                html.Td("Kms of driving", style={'padding': '20px', 'whiteSpace': 'nowrap', 'font-size': 22}),
+                                            ]
+                                        ),
+                                        html.Tr(
+                                            children=[
+                                                # kms of driving
+                                                html.Td(html.Strong("ChatGPT - regular prompt size:"), style={'padding': '20px', 'whiteSpace': 'nowrap'}),
+                                                html.Td(1e-3 * 5434 * 10e3, style={'padding': '20px', 'whiteSpace': 'nowrap'}),
+                                                html.Td("378,148,921", style={'padding': '20px', 'whiteSpace': 'nowrap'})
+                                            ]
+                                        ),
+                                        html.Tr(
+                                            children=[
+                                                
+                                                html.Td(html.Strong("ChatGPT - small prompt size:"), style={'padding': '20px', 'whiteSpace': 'nowrap'}),
+                                                html.Td(5e-4 * 5434 * 10e3, style={'padding': '20px', 'whiteSpace': 'nowrap'}),
+                                                html.Td("189,074,460", style={'padding': '20px', 'whiteSpace': 'nowrap'})
+                                            ]
+                                        ),
+                                        html.Tr(
+                                            children=[
+                                                html.Td(html.Strong("Dalle-2:"), style={'padding': '20px', 'whiteSpace': 'nowrap'}),
+                                                html.Td(round(5e-5 * 192 * 10e3,0), style={'padding': '20px', 'whiteSpace': 'nowrap'}),
+                                                html.Td("668,058", style={'padding': '20px', 'whiteSpace': 'nowrap'})
+                                            ]
+                                        ),
+                                        html.Tr(
+                                            children=[
+                                                html.Td(html.Strong("Stable Diffusion:"), style={'padding': '20px', 'whiteSpace': 'nowrap'}),
+                                                html.Td(round(5e-5 * 214 * 10e3,0), style={'padding': '20px', 'whiteSpace': 'nowrap'}),
+                                                html.Td("744,606", style={'padding': '20px', 'whiteSpace': 'nowrap'})
+                                            ]
+                                        )
+                                    ],
+                                    # style={'display': 'flex', 'justify-content': 'center', 'align-items': 'center'}
+                                )
+                            ],
+                            id="carbons",
+                            className="pretty_container ten columns",
+                            style={'min-width': '700px', 'justify-content': 'center', "align-items": "center"}
                         )
                     ],
                     className="main-container"
