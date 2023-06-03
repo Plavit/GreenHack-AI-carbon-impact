@@ -50,9 +50,9 @@ def get_main_chart():
                   "stablediffusion": 0.00005,
                   }
 
-    df['chatgpt_carbon_cost'] = df['value est'] * query_cost["chatgpt"]#/df["chatgpt est"]
-    df['dalle2_carbon_cost'] = df['value est'] * query_cost["dalle2"]
-    df['stabledif_carbon_cost'] = df['value est'] * query_cost["stablediffusion"]
+    df['chatgpt_carbon_cost'] = df['value est'] * query_cost["chatgpt"]/df["chatgpt est"]
+    df['dalle2_carbon_cost'] = df['value est'] * query_cost["dalle2"]/df["dalle est"]
+    df['stabledif_carbon_cost'] = df['value est'] * query_cost["stablediffusion"]/df["stabdif est"]
 
     df = df.sort_values(by="date", ascending=True)
 
