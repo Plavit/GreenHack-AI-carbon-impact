@@ -126,7 +126,6 @@ app.layout = html.Div(
             [
                 html.Div(
                     [
-                        get_methodology(),
                         get_main_comparison(),
                         html.Div(
                             [
@@ -135,6 +134,7 @@ app.layout = html.Div(
                             ],
                             className="content_holder row twelve columns flex-display"
                         ),
+                        get_methodology(),
 
                     ],
                     className="pretty_container_bg twelve columns",

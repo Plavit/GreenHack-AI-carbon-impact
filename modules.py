@@ -173,17 +173,33 @@ def get_pie_module():
                         className="pretty_container ten columns",
                     )
 
+
 def get_piechart(filename='data/chatgpt_pie.csv'):
     # Load data from CSV file
     data = pd.read_csv(filename)
 
-    # Calculate the count of each category in the data
-    category_counts = data['Type'].value_counts()
-
     # Create a pie chart using Plotly Express
-    fig = px.pie(data_frame=data, names=data['Type'], values=data['Percentage'], title='Category Distribution')
+    fig = px.pie(data_frame=data, names=data['Type'], values=data['Percentage'])
 
-    #darkmode adjustment
-    fig.layout.paper_bgcolor='#CCC'
-    # Return chart
-    return dcc.Graph(figure=fig)
+    # Set custom colors for the pie slices
+    colors = ['#FF6384', '#36A2EB', '#FFCE56', '#33FF8F', '#A633FF']
+    fig.update_traces(marker=dict(colors=colors))
+
+    # Add a cool gradient background to the chart
+    fig.update_layout(
+        paper_bgcolor='#222',
+        plot_bgcolor='#222',
+        font=dict(color='#FFF', size=16),
+        legend={
+            'font': {
+                'size': 18,
+                'color': '#FFF'
+            }
+        },
+    )
+
+    # Return the chart as a dcc.Graph component
+    return dcc.Graph(
+        figure=fig,
+        style={'height': '400px'}  # Adjust the height of the chart as desired
+    )
