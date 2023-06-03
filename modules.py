@@ -157,21 +157,36 @@ def get_facts_module():
                         className="pretty_container description twelve columns flex-display"
                     )
 
+
+def get_carbon_estimates_module():
+    return html.Div(children=[
+                        html.Div(
+                            [
+                                html.H3(
+                                    "One query emissions"
+                                ),
+                                get_piechart()
+                            ]
+                        )
+                    ],
+                    id="pie_graph",
+                    className="pretty_container ten columns",
+                )
+
 def get_pie_module():
-    return html.Div(
-                        children=[
-                            html.Div(
-                                [
-                                    html.H3(
-                                        "Training vs prompt: Impact on CO2 emissions"
-                                    ),
-                                    get_piechart()
-                                ]
-                            )
-                        ],
-                        id="pie_graph",
-                        className="pretty_container ten columns",
-                    )
+    return html.Div(children=[
+                        html.Div(
+                            [
+                                html.H3(
+                                    "Training vs prompt: Impact on CO2 emissions"
+                                ),
+                                get_piechart()
+                            ]
+                        )
+                    ],
+                    id="pie_graph",
+                    className="pretty_container ten columns",
+                )
 
 
 def get_piechart(filename='data/chatgpt_pie.csv'):
