@@ -14,8 +14,9 @@ from dash.dependencies import Input, Output
 from urllib.parse import quote as urlquote
 from flask import Flask, send_from_directory, send_file
 
-from modules import get_methodology, get_facts_module, get_pie_module, get_main_comparison, get_carbon_estimates_module
+from modules import get_methodology, get_facts_module, get_pie_module, get_main_comparison, get_carbon_estimates_module, get_top_module
 
+external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
 # Used dataset version names
@@ -52,7 +53,6 @@ def file_download_link(filename):
     )
 
 
-
 # App server setup
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets, server=server)
 server = app.server
@@ -60,67 +60,7 @@ server = app.server
 # App layout rendering
 app.layout = html.Div(
     children=[
-        html.Div(
-            [
-                html.Div(
-                    [
-                        html.Img(
-                            src='assets/Logo-text-en.png',
-                            draggable='False',
-                            id="logo",
-                            height='auto',
-                            width=220,
-                        )
-                    ],
-                    className="three columns",
-                ),
-                html.Div(
-                    [
-                        html.H3(
-                            "Milee GreenAI benchmark",
-                            style={"margin-bottom": "0px"},
-                        ),
-                        html.H5(
-                            "The green AI climate impact metric",
-                            style={"margin-top": "0px"}
-                        ),
-                        html.I(
-                            [
-                                "Created by ",
-                                html.A(
-                                    "Marek Miltner",
-                                    href="https://github.com/Plavit",
-                                    target="_blank"
-                                ),
-                                ", and ",
-                                html.A(
-                                    "Alena Moravová",
-                                    href="https://github.com/moraval",
-                                    target="_blank"
-                                ),
-                            ],
-                            style={"margin-top": "0px"}
-                        ),
-
-                    ],
-                    className="eight columns",
-                    id="title",
-                ),
-                html.Div(
-                    [
-                        html.A(
-                            html.Button("Contact the authors", id="contact-button"),
-                            href="mailto:marek.szeles@eforce.cvut.cz",
-                        )
-                    ],
-                    className="three columns",
-                    id="button",
-                ),
-            ],
-            id="header",
-            className="row flex-display",
-            style={"margin-bottom": "25px"},
-        ),
+        get_top_module(),
 
         html.Div(
             [
@@ -132,26 +72,27 @@ app.layout = html.Div(
                                 get_carbon_estimates_module(),
                                 get_pie_module()
                             ],
-                            className="content_holder row twelve columns flex-display"
+                            className="content_holder row twelve columns flex-display",
+                            style={'display': 'flex', "flex-direction": "row"}
                         ),
                         html.Div(
                             [
                                 get_facts_module(),
                                 get_methodology(),
                             ],
-                            className="content_holder row twelve columns flex-display"
+                            className="content_holder row twelve columns flex-display",
+                            style={'display': 'flex', "flex-direction": "row"}
                         )
                     ],
                     className="pretty_container_bg twelve columns",
+                    style={'display': 'flex', "flex-direction": "column", 'justifyContent': 'space-between'}
                 ),
             ],
             className="row flex-display",
         ),
-
-
     ],
     id="mainContainer",
-    style={'columnCount': 1, "display": "flex", "flex-direction": "column"},
+    style={'columnCount': 1, "display": "flex", "flex-direction": "column", 'justifyContent': 'space-between'},
 )
 
 app.title = 'GreenHack'
