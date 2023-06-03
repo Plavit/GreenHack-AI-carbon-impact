@@ -62,6 +62,7 @@ def get_main_chart():
         xaxis=dict(tickformat='%b\n%Y')
     )
 
+
     #darkmode adjustment
     fig.layout.paper_bgcolor='#CCC'
 
@@ -70,8 +71,6 @@ def get_main_chart():
 
 def get_methodology():
     return html.Div(
-                        [
-                            html.Div(
                                 children=[
                                     html.Div(
                                         [
@@ -130,10 +129,8 @@ def get_methodology():
                                 ],
                                 id="methods_description",
                                 className="pretty_container description twelve columns flex-display"
-                            ),
-                        ],
-                        className="content_holder row twelve columns flex-display"
-                    )
+                            )
+
 
 def get_facts_module():
     return html.Div(
@@ -175,22 +172,20 @@ def get_carbon_estimates_module():
                         )
                     ],
                     id="carbons",
-                    className="pretty_container ten columns",
+                    className="pretty_container six columns",
                 )
 
 
 def get_carbot_estimates_2_module():
     return html.Div(
-                    children=[
-                        html.Div(
                             children=[
                                 html.H3("Carbon emissions per Query", style={'whiteSpace': 'nowrap'}),
                                 html.Table(
                                     children=[
                                         html.Tr(
                                             children=[
-                                                html.Td("Model type", style={'padding': '20px', 'whiteSpace': 'nowrap', 'font-size': 22}),
-                                                html.Td("C02 [Kg]", style={'padding': '20px', 'whiteSpace': 'nowrap', 'font-size': 22})
+                                                html.Td("Model type", style={'padding': '20px', 'whiteSpace': 'nowrap', 'font-size': 15}),
+                                                html.Td("C02 [Kg]", style={'padding': '20px', 'whiteSpace': 'nowrap', 'font-size': 15})
                                             ]
                                         ),
                                         html.Tr(
@@ -223,26 +218,21 @@ def get_carbot_estimates_2_module():
                             ],
                             id="carbons",
                             className="pretty_container ten columns",
-                            style={'min-width': '450px', 'justify-content': 'center', "align-items": "center"}
-                        )
-                    ],
-                    className="main-container"
-                )
+                            )
+
 
 
 def get_carbon_estimates_total_module():
     return html.Div(
-                    children=[
-                        html.Div(
                             children=[
                                 html.H3("Carbon emissions Total"),
                                 html.Table(
                                     children=[
                                         html.Tr(
                                             children=[
-                                                html.Td("Model type", style={'padding': '20px', 'whiteSpace': 'nowrap', 'font-size': 22}),
-                                                html.Td("Total C02 [Tons]", style={'padding': '20px', 'whiteSpace': 'nowrap', 'font-size': 22}),
-                                                html.Td("Kms of driving", style={'padding': '20px', 'whiteSpace': 'nowrap', 'font-size': 22}),
+                                                html.Td("Model type", style={'padding': '20px', 'whiteSpace': 'nowrap', 'font-size': 15}),
+                                                html.Td("Total C02 [Tons]", style={'padding': '20px', 'whiteSpace': 'nowrap', 'font-size': 15}),
+                                                html.Td("Kms by car", style={'padding': '20px', 'whiteSpace': 'nowrap', 'font-size': 15}),
                                             ]
                                         ),
                                         html.Tr(
@@ -276,16 +266,13 @@ def get_carbon_estimates_total_module():
                                             ]
                                         )
                                     ],
-                                    # style={'display': 'flex', 'justify-content': 'center', 'align-items': 'center'}
+                                    #style={'display': 'flex', 'justify-content': 'center', 'align-items': 'center'}
                                 )
                             ],
                             id="carbons",
                             className="pretty_container ten columns",
-                            style={'min-width': '700px', 'justify-content': 'center', "align-items": "center"}
-                        )
-                    ],
-                    className="main-container"
-                )
+                            )
+
 
 
 def get_pie_module():
@@ -300,7 +287,7 @@ def get_pie_module():
                         )
                     ],
                     id="pie_graph",
-                    className="pretty_container ten columns",
+                    className="pretty_container twelve columns",
                 )
 
 
@@ -395,6 +382,5 @@ def get_top_module():
             ],
             id="header",
             className="row flex-display",
-            style={'columnCount': 3, "margin-bottom": "25px"},
-            # style={'columnCount': 1, 'rowCount': 3, "display": "flex", "flex-direction": "column", 'justifyContent': 'space-between'},
+            style={"margin-bottom": "25px"},
         )
