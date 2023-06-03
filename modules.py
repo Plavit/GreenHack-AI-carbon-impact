@@ -178,6 +178,52 @@ def get_carbon_estimates_module():
                     className="pretty_container ten columns",
                 )
 
+
+def get_carbot_estimates_2_module():
+    return html.Div(
+                    children=[
+                        html.Div(
+                            children=[
+                                html.H3("Carbon emissions per Query"),
+                                html.Table(
+                                    children=[
+                                        html.Tr(
+                                            children=[
+                                                html.Td(html.Strong("ChatGPT - regular prompt size:"), style={'padding': '20px', 'whiteSpace': 'nowrap'}),
+                                                html.Td("1e-3", style={'padding': '20px', 'whiteSpace': 'nowrap'})
+                                            ]
+                                        ),
+                                        html.Tr(
+                                            children=[
+                                                html.Td(html.Strong("ChatGPT - small prompt size:"), style={'padding': '20px', 'whiteSpace': 'nowrap'}),
+                                                html.Td("5e-4", style={'padding': '20px', 'whiteSpace': 'nowrap'})
+                                            ]
+                                        ),
+                                        html.Tr(
+                                            children=[
+                                                html.Td(html.Strong("Dalle-2:"), style={'padding': '20px', 'whiteSpace': 'nowrap'}),
+                                                html.Td("5e-5", style={'padding': '20px', 'whiteSpace': 'nowrap'})
+                                            ]
+                                        ),
+                                        html.Tr(
+                                            children=[
+                                                html.Td(html.Strong("Stable Diffusion:"), style={'padding': '20px', 'whiteSpace': 'nowrap'}),
+                                                html.Td("5e-5", style={'padding': '20px', 'whiteSpace': 'nowrap'})
+                                            ]
+                                        )
+                                    ],
+                                    # style={'display': 'flex', 'justify-content': 'center', 'align-items': 'center'}
+                                )
+                            ],
+                            id="carbons",
+                            className="pretty_container ten columns",
+                            style={'min-width': '400px', 'justify-content': 'center', "align-items": "center"}
+                        )
+                    ],
+                    className="main-container"
+                )
+
+
 def get_pie_module():
     return html.Div(children=[
                         html.Div(
