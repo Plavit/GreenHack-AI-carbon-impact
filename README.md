@@ -32,6 +32,7 @@ num_{𝑆𝐿}=𝑁𝑢𝑚𝑏𝑒𝑟 𝑜𝑓 𝑆𝑒𝑟𝑣𝑒𝑟 𝐿�
 ```
 
 # Slides
+included in the attached pptx
 
 # Disclaimer
 This project was created as part of the GreenHack 2023, thank you for having us!
