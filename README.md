@@ -1,6 +1,15 @@
 # GreenHack-AI-carbon-impact
 
 # Motivation
+- Large ML models go brrrr -> Planet goes 🔥
+- AI estimator for climate impact of digital services
+
+
+- Two big benefits:
+  - Allows customers to choose models used based on climate impact, not just cost
+  - Allows ML companies identify their weakpoints and optimize models for lower climate impact
+
+
 
 # Model
 The climate impact is estimated with the following formula:
